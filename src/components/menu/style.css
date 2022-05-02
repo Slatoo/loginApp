@@ -1,0 +1,10 @@
+.siderMenu {
+  max-width: 200px;
+  height: 100vh;
+}
+
+@media screen and (max-width: 700px) {
+  .siderMenu {
+    display: none !important;
+  }
+}

@@ -1,0 +1,60 @@
+.contentLogin {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contentLogin > div {
+  max-width: 650px;
+  width: 100%;
+}
+.spam {
+  font-size: large;
+  line-height: 0%;
+}
+.password {
+  display: flex;
+  margin-top: 18px;
+
+  font-size: medium;
+}
+
+.usernameText {
+  display: flex;
+  font-size: medium;
+  margin-top: 15px;
+}
+.forgotPass {
+  font-size: large;
+  display: flex;
+  justify-content: right;
+  margin-top: 15px;
+}
+.buttonAnt {
+  width: 100%;
+}
+
+.userContent {
+  position: relative;
+}
+.passwordContent {
+  position: relative;
+}
+.errorText {
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+
+.errorPassword {
+  position: absolute;
+  left: 0;
+  top: 56%;
+}
+
+@media screen and (max-width: 700px) {
+  .contentLogin {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
