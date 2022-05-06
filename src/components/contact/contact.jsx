@@ -18,13 +18,11 @@ import {
   CloseOutlined,
 } from '@ant-design/icons';
 import './style.css';
-import { useNavigate } from 'react-router-dom';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Footer } = Layout;
 const { Title, Text } = Typography;
 
 export default function Contact1() {
-  const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   const [data, setData] = useState({
     user: '',
@@ -32,6 +30,7 @@ export default function Contact1() {
     description: '',
     email: '',
     areaCode: '',
+    addresss: '',
   });
   const [error, setError] = useState({
     user: '',
@@ -39,6 +38,7 @@ export default function Contact1() {
     description: '',
     email: '',
     areaCode: '',
+    addresss: '',
   });
 
   const handleCreate = () => {
@@ -48,6 +48,7 @@ export default function Contact1() {
       description: '',
       email: '',
       areaCode: '',
+      addresss: '',
     };
     if (data.user === '') {
       error.user = 'Fill the empty field';
@@ -64,10 +65,13 @@ export default function Contact1() {
     if (data.areaCode === '') {
       error.areaCode = 'Fill the empty field';
     }
+    if (data.addresss === '') {
+      error.addresss = 'Fill the empty field';
+    }
     if (error) {
       setError(error);
     } else {
-      setError(false);
+      setError({});
     }
   };
   const handleText = (evt) => {
@@ -76,16 +80,16 @@ export default function Contact1() {
   const clearInput = () => {
     setError(false);
   };
-  const handleSubmitContact = () => {
-    navigate('/contacts');
-  };
-  const handleSubmitProfile = () => {
-    navigate('/profile');
-  };
 
   const handleCollapsed = () => {
     console.log(collapsed);
     setCollapsed(!collapsed);
+  };
+  const handleSelect = (value) => {
+    setData({
+      ...data,
+      addresss: value,
+    });
   };
   const { TextArea } = Input;
   const { Option } = Select;
@@ -167,13 +171,29 @@ export default function Contact1() {
               </div>
               <div className="inputContent">
                 <Text strong>Select an address</Text>
-                <Input.Group compact>
-                  <Select>
+                <Input.Group
+                  compact
+                  name="address"
+                  id="address"
+                  value={data.address}
+                >
+                  <Select
+                    onChange={handleSelect}
+                    status={error.addresss ? 'error' : ''}
+                  >
                     <Option value="Company 1">Company 1</Option>
                     <Option value="Company 2">Company 2</Option>
                   </Select>
-                  <Cascader options={options} placeholder="Select an address" />
+                  <Cascader
+                    onChange={handleSelect}
+                    options={options}
+                    placeholder="Select an address"
+                    status={error.addresss ? 'error' : ''}
+                  />
                 </Input.Group>
+                {error.addresss && (
+                  <Text className="errorText">{error.addresss}</Text>
+                )}
               </div>
               <div className="inputContent">
                 <Text strong>Description</Text>

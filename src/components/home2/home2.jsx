@@ -15,19 +15,19 @@ import {
 } from 'antd';
 import { UserAddOutlined, CloseOutlined } from '@ant-design/icons';
 
+//import { useNavigate } from 'react-router-dom';
+
 const { Header, Content, Footer } = Layout;
 const { Title, Text } = Typography;
 const { Option } = Select;
 
-export default function HomePage1() {
+export default function HomePage2() {
   const [data, setData] = useState({
     user: '',
     surname: '',
     relation: '',
     gender: '',
     docNumber: '',
-    docType: '',
-    country: '',
   });
   const [error, setError] = useState({
     user: '',
@@ -35,9 +35,14 @@ export default function HomePage1() {
     relation: '',
     gender: '',
     docNumber: '',
-    docType: '',
-    country: '',
   });
+  //const navigate = useNavigate();
+  //const handleSubmitContact = () => {
+  //navigate('/contacts');
+  //};
+  //const handleSubmitProfile = () => {
+  //navigate('/profile');
+  // };
   const handleCreate = () => {
     let error = {
       user: '',
@@ -45,8 +50,6 @@ export default function HomePage1() {
       relation: '',
       gender: '',
       docNumber: '',
-      docType: '',
-      country: '',
     };
     if (data.user === '') {
       error.user = 'Fill the empty field';
@@ -63,12 +66,6 @@ export default function HomePage1() {
     if (data.docNumber === '') {
       error.docNumber = 'Fill the empty field';
     }
-    if (data.docType === '') {
-      error.docType = 'Fill the empty field';
-    }
-    if (data.country === '') {
-      error.country = 'Fill the empty field';
-    }
     if (error) {
       setError(error);
     } else {
@@ -82,22 +79,10 @@ export default function HomePage1() {
     setData((prevState) => ({ ...prevState, ...{ [evt.id]: evt.value } }));
   };
 
-  const handleSelectG = (value) => {
+  const handleSelect = (value) => {
     setData({
       ...data,
       gender: value,
-    });
-  };
-  const handleSelectT = (value) => {
-    setData({
-      ...data,
-      docType: value,
-    });
-  };
-  const handleSelectC = (value) => {
-    setData({
-      ...data,
-      country: value,
     });
   };
   return (
@@ -126,7 +111,6 @@ export default function HomePage1() {
                   value={data.user}
                   onChange={(evt) => handleText(evt.target)}
                   status={error.user ? 'error' : ''}
-                  placeholder="Please choose"
                 />
                 {error.user && <Text className="errorText">{error.user}</Text>}
               </div>
@@ -138,7 +122,6 @@ export default function HomePage1() {
                   onChange={(evt) => handleText(evt.target)}
                   status={error.surname ? 'error' : ''}
                   type={'text'}
-                  placeholder="Please choose"
                 />
                 {error.surname && (
                   <Text className="errorText">{error.surname}</Text>
@@ -152,7 +135,6 @@ export default function HomePage1() {
                   onChange={(evt) => handleText(evt.target)}
                   status={error.relation ? 'error' : ''}
                   type={'text'}
-                  placeholder="Please choose"
                 />
                 {error.relation && (
                   <Text className="errorText">{error.relation}</Text>
@@ -167,15 +149,12 @@ export default function HomePage1() {
                   name="gender"
                   id="gender"
                   value={data.gender}
-                  onChange={handleSelectG}
+                  onChange={handleSelect}
                   status={error.gender ? 'error' : ''}
                 >
                   <Option value="Male">Male</Option>
                   <Option value="Female">Female</Option>
                 </Select>
-                {error.gender && (
-                  <Text className="errorText">{error.gender}</Text>
-                )}
               </div>
             </div>
           </Col>
@@ -184,55 +163,30 @@ export default function HomePage1() {
             <div className="FormConten2">
               <div className="inputContent">
                 <Text strong>Type of Document</Text>
-                <Select
-                  className="selectHome"
-                  placeholder="Please choose"
-                  id="docType"
-                  name="docType"
-                  value={data.docType}
-                  onChange={handleSelectT}
-                  status={error.docType ? 'error' : ''}
-                >
+                <Select className="selectHome" placeholder="Please choose">
                   <Option value="Pasport">Pasport</Option>
                   <Option value="ID">ID</Option>
                 </Select>
-                {error.docType && (
-                  <Text className="errorText">{error.docType}</Text>
-                )}
               </div>
-
               <div className="inputContent">
                 <Text strong>ID Issuing Country</Text>
 
-                <Select
-                  className="selectHome"
-                  placeholder="Please choose"
-                  id="country"
-                  name="country"
-                  value={data.country}
-                  onChange={handleSelectC}
-                  status={error.country ? 'error' : ''}
-                >
+                <Select className="selectHome" placeholder="Please choose">
                   <Option value="1">1</Option>
                   <Option value="2">2</Option>
                 </Select>
-                {error.country && (
-                  <Text className="errorText">{error.country}</Text>
-                )}
               </div>
               <div className="inputContent">
                 <Text strong>Document Number</Text>
                 <Input
+                  type={'text'}
                   id="docNumber"
-                  name="docNumber"
                   value={data.docNumber}
                   onChange={(evt) => handleText(evt.target)}
                   status={error.docNumber ? 'error' : ''}
-                  type={'text'}
-                  placeholder="Please choose"
                 />
-                {error.country && (
-                  <Text className="errorText">{error.country}</Text>
+                {error.docNumber && (
+                  <Text className="errorText">{error.docNumber}</Text>
                 )}
               </div>
               <div className="inputContent">

@@ -1,0 +1,127 @@
+.headerHome {
+  background-color: rgb(80, 80, 228);
+  color: white;
+  height: 12%;
+  padding-left: 15px;
+  padding-right: 0px !important;
+}
+.headerHome > h1 {
+  color: white;
+  font-size: large;
+  margin-top: 10px;
+}
+
+.contentHome {
+  background-color: white;
+  display: flex;
+}
+
+.FormConten1 {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 25px;
+}
+
+.FormConten2 {
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 25px;
+}
+.footerHome {
+  background-color: rgb(255, 255, 255);
+}
+
+.mainLayoutHome {
+  height: 100vh;
+}
+
+.menuHome {
+  height: 100%;
+  background-color: rgb(83, 83, 211);
+  color: white;
+  font-size: large;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected.itemSelected {
+  background: rgb(26, 28, 138) !important;
+}
+.textHome {
+  color: white;
+  display: flex;
+  justify-content: left !important;
+}
+
+.buttonHome {
+  width: 20%;
+  margin-left: 2%;
+  border-radius: 13px;
+}
+.buttonContent {
+  display: flex;
+  justify-content: end;
+}
+.roundedButton {
+  display: flex;
+  justify-content: end;
+}
+
+.selectHome {
+  width: 100%;
+}
+
+.dateHome {
+  width: 100%;
+}
+
+.contentSwitch {
+  margin: 5% 0 5% 0;
+  display: flex;
+  justify-content: space-between;
+}
+.contentSwitch {
+  display: flex;
+  justify-content: left;
+}
+.switchPhone {
+  margin-left: 20px;
+}
+.switchEmail {
+  margin-left: 26px;
+}
+
+.iconCircle {
+  color: rgba(0, 0, 0, 0.45);
+}
+.welcome {
+  color: white !important;
+  font-size: medium !important;
+  margin-bottom: 0px !important;
+}
+.inputContent {
+  margin-bottom: 25px;
+  position: relative;
+}
+.errorText {
+  position: absolute;
+}
+
+@media screen and (max-width: 700px) {
+  .menuHome {
+    display: none !important;
+  }
+  .siderHome {
+    display: none !important;
+  }
+  .buttonContent {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .roundedButton {
+    display: none;
+  }
+  .buttonMenu {
+    display: none;
+  }
+}

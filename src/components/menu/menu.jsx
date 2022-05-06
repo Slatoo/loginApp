@@ -1,6 +1,7 @@
 import { Menu } from 'antd';
 import { AppstoreOutlined, MailOutlined } from '@ant-design/icons';
 import './style.css';
+import { useNavigate } from 'react-router-dom';
 function getItem(label, key, icon, children, type) {
   return {
     key,
@@ -28,19 +29,22 @@ const items = [
 ];
 
 const SiderMenu = () => {
+  const navigate = useNavigate();
   const onClick = (e) => {
-    console.log('click ', e);
+    console.log('click ', e.key);
+    if (e.key === '1') {
+      navigate('/home');
+    }
+    if (e.key === '2') {
+      navigate('/home2');
+    }
+    if (e.key === '3') {
+      navigate('/contact');
+    }
   };
 
   return (
-    <Menu
-      className="siderMenu"
-      onClick={onClick}
-      defaultSelectedKeys={['1']}
-      defaultOpenKeys={['sub1']}
-      mode="inline"
-      items={items}
-    />
+    <Menu className="siderMenu" onClick={onClick} mode="inline" items={items} />
   );
 };
 
